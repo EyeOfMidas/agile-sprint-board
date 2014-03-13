@@ -6,6 +6,8 @@ class ControllerFactory {
 		switch ($controllerIndex) {
 			case "storyedit":
 				return new StoryEditController();
+			case "storysave":
+				return new StorySaveController();
 			case "index":
 			default:
 				return new IndexController();
