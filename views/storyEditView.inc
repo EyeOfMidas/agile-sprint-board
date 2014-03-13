@@ -2,11 +2,11 @@
 <form method="post" action="/?c=storysave">
 	<div class="row">
 		<label for="story">Story:</label>
-		<p class="editable" id="story">*This is a test*</p>
+		<textarea class="editable" id="story"></textarea>
 	</div>
 	<div class="row">
 		<label for="details">Details:</label>
-		<p class="editable" id="details"></p>
+		<textarea class="editable" id="details"></textarea>
 	</div>
 	<div class="row">
 		<label for="estimate">Estimate:</label><select id="estimate"
