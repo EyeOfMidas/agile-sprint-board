@@ -3,6 +3,7 @@
 html,body {
 	margin: 0px;
 	padding: 0px;
+	background-color: #FFFFFF;
 }
 
 footer {
@@ -11,26 +12,21 @@ footer {
 }
 
 section#board_container {
-	background-color: #E9E9E9;
+	background-color: #FFFFE9;
 	margin: 10px;
 	padding: 0px;
 	float: left;
 }
 
-div#board {
-	margin: 0;
-	padding: 0;
-	text-indent: 0;
-	background-color: #E9E9E9;
-}
-
 div.column {
 	position: relative;
 	float: left;
-	margin: auto;
-	min-width: 210px;
-	width: 25%;
 	text-align: center;
+	border-right: 2px dashed gray;
+}
+
+div.column.lastColumn {
+	border: none;
 }
 
 ul {
@@ -48,27 +44,36 @@ li.userStory {
 	position: relative;
 	border: 1px solid black;
 	width: 180px;
-	height: 100px;
-	text-align: left;
+	min-height: 40px;
 	margin: 0 5px 5px 5px;
 	padding: 5px;
-	font-size: 1.2em;
 	background-color: white;
 }
 
+li.userStory:hover {
+	cursor: pointer;
+}
+
+li.userStory.ui-sortable-helper {
+	cursor: move;
+}
+
 .estimate {
-	top: 5px;
-	right: 5px;
 	font-size: 20;
 	font-weight: bold;
-	position: absolute;
+	float: right;
+}
+
+.story {
+	text-align: left;
+	font-size: 1.2em;
 }
 
 li.userStoryPlaceholder {
 	width: 180px;
-	height: 100px;
+	min-height: 100px;
 	margin: 0 5px 5px 5px;
 	padding: 5px;
 	background-color: #BBDDFF;
-	border: 1px #3399FF dashed;
+	border: 1px dashed #3399FF;
 }
