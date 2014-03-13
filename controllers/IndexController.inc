@@ -1,6 +1,6 @@
 <?php
 
-class IndexController {
+class IndexController implements IController{
 
 	public function execute(Form $form) {
 		$view = new View();

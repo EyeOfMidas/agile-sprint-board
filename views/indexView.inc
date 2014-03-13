@@ -4,35 +4,91 @@
 </header>
 <section id="board_container">
 	<div id="board">
-		<div class="column">
+		<div class="board_column">
 			<h3>Backlog</h3>
 			<ul id="backlog" class="connectedSortable">
-				<li class="userStory"><div class="estimate">1</div><p class="story">As a project manager, I would like to attach spec notes to a user story</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
-				<li class="userStory"><div class="estimate">3</div><p class="story">As a project manager, I would like to schedule multiple sprints, each rotating on the sprint schedule (weekly)</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
-				<li class="userStory"><div class="estimate">5</div><p class="story">As a project manager, I would like to have the prioritized backlog automatically build up a sprint per week</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
+				<li class="userStory"><div class="estimate">1</div>
+					<p class="story">As a project manager, I would like to attach spec
+						notes to a user story</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
+				<li class="userStory"><div class="estimate">3</div>
+					<p class="story">As a project manager, I would like to schedule
+						multiple sprints, each rotating on the sprint schedule (weekly)</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
+				<li class="userStory"><div class="estimate">5</div>
+					<p class="story">As a project manager, I would like to have the
+						prioritized backlog automatically build up a sprint per week</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
 			</ul>
 		</div>
-		<div class="column">
+		<div class="board_column">
 			<h3>To Do</h3>
 			<ul id="todo" class="connectedSortable">
-				<li class="userStory"><div class="estimate">2</div><p class="story">As a developer, I would like to estimate user stories</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
-				<li class="userStory"><div class="estimate">2</div><p class="story">As a project manager, I would like to see the sprint "to-do" estimate total and the sprint "done" total</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
+				<li class="userStory"><div class="estimate">2</div>
+					<p class="story">As a developer, I would like to estimate user
+						stories</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
+				<li class="userStory"><div class="estimate">2</div>
+					<p class="story">As a project manager, I would like to see the
+						sprint "to-do" estimate total and the sprint "done" total</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
 			</ul>
 		</div>
-		<div class="column">
+		<div class="board_column">
 			<h3>In Progress</h3>
 			<ul id="inprogress" class="connectedSortable">
-				<li class="userStory"><div class="estimate">3</div><p class="story">As a project manager, I would like to add a new user story to the backlog</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
+				<li class="userStory"><div class="estimate">3</div>
+					<p class="story">As a project manager, I would like to add a new
+						user story to the backlog</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
 			</ul>
 		</div>
-		<div class="column lastColumn">
+		<div class="board_column lastColumn">
 			<h3>Done</h3>
 			<ul id="done" class="connectedSortable">
-				<li class="userStory"><div class="estimate">1</div><p class="story">As a developer, I would like to drag-and-drop a user story from "to-do" into "in progress"</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
-				<li class="userStory"><div class="estimate">1</div><p class="story">As a developer, I would like to drag-and-drop a user story from "in progress" to "done"</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
-				<li class="userStory"><div class="estimate">3</div><p class="story">As a project manager, I would like to drag-and-drop user stories into the sprint, prioritized (sorted)</p><div class="storyNav"><a href="javascript:;">Details</a> | <a href="javascript:;">Edit</a></div></li>
+				<li class="userStory"><div class="estimate">1</div>
+					<p class="story">As a developer, I would like to drag-and-drop a
+						user story from "to-do" into "in progress"</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
+				<li class="userStory"><div class="estimate">1</div>
+					<p class="story">As a developer, I would like to drag-and-drop a
+						user story from "in progress" to "done"</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
+				<li class="userStory"><div class="estimate">3</div>
+					<p class="story">As a project manager, I would like to
+						drag-and-drop user stories into the sprint, prioritized (sorted)</p>
+					<div class="storyNav">
+						<a href="javascript:;">Details</a> | <a href="/?c=storyedit">Edit</a>
+					</div></li>
 			</ul>
 		</div>
 	</div>
 </section>
+<script type="text/javascript">
+$(function() {
+	$('.storyNav a').click(function() {
+		console.log('link clicked');
+	});
+    $( "#backlog, #todo, #inprogress, #done" ).sortable({
+      connectWith: ".connectedSortable"
+      ,placeholder: "userStoryPlaceholder"
+    }).disableSelection();
+  });
+</script>
 <?php include "footerView.inc" ?>

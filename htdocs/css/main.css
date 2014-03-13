@@ -18,14 +18,14 @@ section#board_container {
 	float: left;
 }
 
-div.column {
+div.board_column {
 	position: relative;
 	float: left;
 	text-align: center;
 	border-right: 2px dashed gray;
 }
 
-div.column.lastColumn {
+div.board_column.lastColumn {
 	border: none;
 }
 
@@ -59,7 +59,7 @@ li.userStory.ui-sortable-helper {
 }
 
 .estimate {
-	font-size: 20;
+	font-size: 1.5em;
 	font-weight: bold;
 	float: right;
 }
@@ -72,10 +72,10 @@ li.userStory.ui-sortable-helper {
 .storyNav {
 	text-align: right;
 	margin: 0;
-	padding:0;
+	padding: 0;
 }
 
-.storyNav a:link, .storyNav a:visited {
+.storyNav a:link,.storyNav a:visited {
 	text-decoration: none;
 	color: blue;
 }
@@ -91,4 +91,10 @@ li.userStoryPlaceholder {
 	padding: 5px;
 	background-color: #BBDDFF;
 	border: 1px dashed #3399FF;
+}
+
+p.editable {
+	border: 1px solid gray;
+	width: 400px;
+	height: 200px;
 }
