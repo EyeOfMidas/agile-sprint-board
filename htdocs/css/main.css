@@ -69,6 +69,21 @@ li.userStory.ui-sortable-helper {
 	font-size: 1.2em;
 }
 
+.storyNav {
+	text-align: right;
+	margin: 0;
+	padding:0;
+}
+
+.storyNav a:link, .storyNav a:visited {
+	text-decoration: none;
+	color: blue;
+}
+
+.storyNav a:hover {
+	text-decoration: underline;
+}
+
 li.userStoryPlaceholder {
 	width: 180px;
 	min-height: 100px;

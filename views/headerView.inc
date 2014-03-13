@@ -8,6 +8,9 @@
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript" >
 $(function() {
+	$('.storyNav a').click(function() {
+		console.log('link clicked');
+	});
     $( "#backlog, #todo, #inprogress, #done" ).sortable({
       connectWith: ".connectedSortable"
       ,placeholder: "userStoryPlaceholder"
