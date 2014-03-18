@@ -11,7 +11,7 @@ class StorySaveController implements IController {
 		$estimate = $form->post('estimate');
 		
 		$storyData = array(
-			'id' => $id,
+			'story_id' => $id,
 			'text' => $text,
 			'details' => $details,
 			'estimate' => $estimate

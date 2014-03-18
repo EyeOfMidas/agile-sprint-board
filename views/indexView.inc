@@ -1,7 +1,9 @@
-<?php include "headerView.inc";
-    $allColumnNames = array();
-foreach ($columns as $column) {
-	$allColumnNames[] = "#" . $column['columnName'];
+<?php
+
+include "headerView.inc";
+$allColumnNames = array();
+foreach ($board->getColumns() as $column) {
+	$allColumnNames[] = "#" . $column->getName();
 }
 $columnNameString = join(", ", $allColumnNames);
 ?>
@@ -11,7 +13,7 @@ $columnNameString = join(", ", $allColumnNames);
 <section id="board_container">
 	<div id="board">
 		<?php
-foreach ($columns as $column) {
+		foreach ($board->getColumns() as $column) {
 			include 'columnView.inc';
 		}
 		?>

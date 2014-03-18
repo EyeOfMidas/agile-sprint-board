@@ -3,17 +3,17 @@
 	<form method="post" action="/?c=storysave">
 		<div class="row">
 			<label for="story">Story:</label>
-			<textarea class="editable" id="story"><?=$story['text']?></textarea>
+			<textarea class="editable" id="story"><?=$story->getText()?></textarea>
 		</div>
 		<div class="row">
 			<label for="details">Details:</label>
-			<textarea class="editable" id="details"><?=$story['details']?></textarea>
+			<textarea class="editable" id="details"><?=$story->getDetails()?></textarea>
 		</div>
 		<div class="row">
 			<label for="estimate">Estimate:</label><select id="estimate" name="estimate">
 				<option>-- Pick one --</option>
 				<?php foreach($estimates as $estimate) { ?>
-				<option value="<?=$estimate?>" <?=($story['estimate'] == $estimate) ? "selected=\"selected\"" : ""?>><?=$estimate?></option>
+				<option value="<?=$estimate->getId()?>" <?=($story->getEstimateId() == $estimate->getId()) ? "selected=\"selected\"" : ""?>><?=$estimate->getDisplay()?></option>
 				<?php } ?>
 			</select>
 		</div>

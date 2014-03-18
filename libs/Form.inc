@@ -7,4 +7,10 @@ class Form {
 			return $_GET[$index];
 		}
 	}
+	
+	public function post($index) {
+		if (isset($_POST[$index])) {
+			return $_POST[$index];
+		}
+	}
 }

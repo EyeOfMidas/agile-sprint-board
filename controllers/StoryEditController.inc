@@ -6,12 +6,13 @@ class StoryEditController implements IController {
 		$view = new View();
 		$storyId = $form->get('s');
 		
-		$storyData = array();
-		$storyModel = new Story();
+		$board = new Board();
+		$board->load();
+		$story = $board->getStoryById($storyId);
 		
 		$viewData = array(
-			'estimates' => array(1,2,3,5,8,13),
-			'story' => $storyData 
+			'estimates' => $board->getEstimates(),
+			'story' => $story 
 		);
 		return $view->render('storyEditView.inc', $viewData);
 	}
