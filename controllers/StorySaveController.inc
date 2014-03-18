@@ -8,16 +8,16 @@ class StorySaveController implements IController {
 		$id = $form->get('s');
 		$text = $form->post('story');
 		$details = $form->post('details');
-		$estimate = $form->post('estimate');
+		$estimateId = $form->post('estimate_id');
 		
 		$storyData = array(
 			'story_id' => $id,
 			'text' => $text,
 			'details' => $details,
-			'estimate' => $estimate
+			'estimate_id' => $estimateId
 		);
-		
-		$story = new Story();
+		var_dump($storyData);
+		$story = new Story(new Board());
 		$story->populate($storyData);
 		$story->update();
 		

@@ -1,13 +1,8 @@
 <?php
-
 class Story {
-
 	private $id;
-
 	private $text;
-
 	private $details;
-
 	private $estimateId;
 
 	public function __construct(Board $board) {
@@ -15,7 +10,6 @@ class Story {
 	}
 
 	public function load($id) {
-		// TODO: sql query to load this object
 		$sql = sprintf("SELECT * FROM story WHERE story_id = '%s' LIMIT 1", $id);
 		$database = new Database();
 		$result = $database->query($sql);
@@ -42,37 +36,36 @@ class Story {
 	}
 
 	public function create() {
-// 		$sql = sprintf("INSERT INTO story (story_id, text, details, estimate)
-// 			VALUES ('%s', '%s', '%s', '%s')", $this->text, $this->details, $this->estimate);
-		
-		// TODO: write to DB
+		$sql = sprintf("INSERT INTO story (story_id, text, details, estimate_id) VALUES ('%s', '%s', '%s', '%s')", $this->text, $this->details, $this->estimateId);
+		$database = new Database();
+		$insertId = $database->write($sql);
+		$this->id = $insertId;
 	}
 
 	public function update() {
-		var_dump($this->estimateId);
-		die();
 		if ($this->id) {
-// 			$sql = sprintf("UPDATE story text='%s', details='%s', estimate='%s' WHERE story_id = '%s'", $this->text, $this->details, $this->estimate, $this->id);
-			// TODO: write to DB
+			$sql = sprintf("UPDATE story SET text='%s', details='%s', estimate_id='%s' WHERE story_id = '%s'", $this->text, $this->details, $this->estimateId, $this->id);
+			$database = new Database();
+			$database->write($sql);
 		}
 	}
-	
+
 	public function getId() {
 		return $this->id;
 	}
-	
+
 	public function getText() {
 		return $this->text;
 	}
-	
+
 	public function getDetails() {
 		return $this->details;
 	}
-	
+
 	public function getEstimateId() {
 		return $this->estimateId;
 	}
-	
+
 	public function getEstimate() {
 		return $this->board->getEstimateById($this->estimateId);
 	}
