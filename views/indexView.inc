@@ -25,7 +25,15 @@ $(function() {
       connectWith: ".connectedSortable",
       placeholder: "userStoryPlaceholder",
       receive: function(event, ui) {
-          $.post("/?c=changecolumn", {s:ui.item.data('story_id'), col: ui.item.parent().data("column_id")});
+          console.log('change column', ui.item.parent().data("column_id"));
+          $.post("/?c=changepos", {s:ui.item.data('story_id'), col: ui.item.parent().data("column_id"), i: ui.item.index()});
+      },
+      start: function(event, ui) {
+          ui.item.startIndex = ui.item.index();
+      },
+      stop: function(event, ui) {
+          console.log('change order ', ui.item.startIndex, ui.item.index());
+    	  $.post("/?c=changepos", {s:ui.item.data('story_id'),  col: ui.item.parent().data("column_id"), si: ui.item.startIndex, i: ui.item.index()});
       }
     }).disableSelection();
   });

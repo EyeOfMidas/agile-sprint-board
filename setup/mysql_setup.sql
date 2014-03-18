@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 18, 2014 at 12:13 PM
+-- Generation Time: Mar 18, 2014 at 02:19 PM
 -- Server version: 5.5.35
 -- PHP Version: 5.4.4-14+deb7u8
 
@@ -93,13 +93,13 @@ CREATE TABLE IF NOT EXISTS `story` (
 INSERT INTO `story` (`story_id`, `text`, `details`, `estimate_id`, `column_id`, `sort`) VALUES
 (1, 'As a project manager, I would like to attach spec notes to a user story', '', 2, 1, 1),
 (2, 'As a project manager, I would like to schedule multiple sprints, each rotating on the sprint schedule (weekly)', '', 4, 1, 2),
-(5, 'As a project manager, I would like to have the prioritized backlog automatically build up a sprint per week', '', 5, 1, 3),
-(6, 'As a developer, I would like to estimate user stories', '', 4, 0, 1),
-(7, 'As a project manager, I would like to see the sprint "to-do" estimate total and the sprint "done" total', '', 3, 2, 2),
+(5, 'As a project manager, I would like to have the prioritized backlog automatically build up a sprint per week', '', 5, 1, 0),
+(6, 'As a developer, I would like to easily estimate user stories', '', 4, 4, 0),
+(7, 'As a project manager, I would like to see the sprint "to-do" estimate total and the sprint "done" total', '', 3, 2, 0),
 (8, 'As a project manager, I would like to add a new user story to the backlog', '', 4, 2, 1),
 (9, 'As a developer, I would like to drag-and-drop a user story from "to-do" into "in progress"', '', 2, 4, 1),
 (10, 'As a developer, I would like to drag-and-drop a user story from "in progress" to "done"', '', 2, 4, 2),
-(11, 'As a project manager, I would like to drag-and-drop user stories into the sprint, prioritized (sorted)', '', 4, 3, 3);
+(11, 'As a project manager, I would like to drag-and-drop user stories into the sprint, prioritized (sorted)', '', 4, 3, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -60,4 +60,19 @@ class Board {
 			}
 		}
 	}
+
+	public function columnSort(Story $story, $newSort) {
+		$oldSort = $story->getSort();
+		$columnId = $story->getColumnId();
+		if ($newSort > $oldSort) {
+			$sql = sprintf("UPDATE story SET sort = sort - 1 WHERE sort > %s AND sort <= %s AND column_id = '%s'", $oldSort, $newSort, $columnId);
+			$database = new Database();
+			$database->query($sql);
+		} elseif ($newSort < $oldSort) {
+			$sql = sprintf("UPDATE story SET sort = sort + 1 WHERE sort >= %s AND sort < %s AND column_id = '%s'", $newSort, $oldSort, $columnId);
+			$database = new Database();
+			$database->query($sql);
+		}
+		$story->setSort($newSort);
+	}
 }

@@ -5,6 +5,7 @@ class Story {
 	private $details;
 	private $columnId;
 	private $estimateId;
+	private $sort;
 
 	public function __construct(Board $board) {
 		$this->board = $board;
@@ -19,6 +20,7 @@ class Story {
 		$this->details = $result[0]['details'];
 		$this->columnId = $result[0]['column_id'];
 		$this->estimateId = $result[0]['estimate_id'];
+		$this->sort = $result[0]['sort'];
 	}
 
 	public function populate(array $storyData) {
@@ -27,6 +29,7 @@ class Story {
 		$this->details = (isset($storyData['details']) ? $storyData['details'] : $this->details);
 		$this->columnId = (isset($storyData['column_id']) ? $storyData['column_id'] : $this->columnId);
 		$this->estimateId = (isset($storyData['estimate_id']) ? $storyData['estimate_id'] : $this->estimateId);
+		$this->sort = (isset($storyData['sort']) ? $storyData['sort'] : $this->sort);
 	}
 
 	public function toArray() {
@@ -35,12 +38,13 @@ class Story {
 			"text" => $this->text,
 			"details" => $this->details,
 			"column_id" => $this->columnId,
-			"estimate_id" => $this->estimateId
+			"estimate_id" => $this->estimateId,
+			"sort" => $this->sort
 		);
 	}
 
 	public function create() {
-		$sql = sprintf("INSERT INTO story (text, details, column_id, estimate_id) VALUES ('%s', '%s', '%s', '%s')", $this->text, $this->details, $this->columnId, $this->estimateId);
+		$sql = sprintf("INSERT INTO story (text, details, column_id, estimate_id, sort) VALUES ('%s', '%s', '%s', '%s', '%s')", $this->text, $this->details, $this->columnId, $this->estimateId, $this->sort);
 		$database = new Database();
 		$insertId = $database->write($sql);
 		$this->id = $insertId;
@@ -48,7 +52,7 @@ class Story {
 
 	public function update() {
 		if ($this->id) {
-			$sql = sprintf("UPDATE story SET text='%s', details='%s', column_id='%s', estimate_id='%s' WHERE story_id = '%s'", $this->text, $this->details, $this->columnId, $this->estimateId, $this->id);
+			$sql = sprintf("UPDATE story SET text='%s', details='%s', column_id='%s', estimate_id='%s', sort='%s' WHERE story_id = '%s'", $this->text, $this->details, $this->columnId, $this->estimateId, $this->sort, $this->id);
 			$database = new Database();
 			$database->write($sql);
 		}
@@ -74,7 +78,19 @@ class Story {
 		return $this->board->getEstimateById($this->estimateId);
 	}
 
+	public function getColumnId() {
+		return $this->columnId;
+	}
+
 	public function setColumnId($columnId) {
 		$this->columnId = $columnId;
+	}
+
+	public function getSort() {
+		return $this->sort;
+	}
+
+	public function setSort($sort) {
+		$this->sort = $sort;
 	}
 }
