@@ -14,6 +14,10 @@ class Story {
 
 	public function load($id) {
 		// TODO: sql query to load this object
+		$sql = sprintf("SELECT * FROM story WHERE story_id = '%s' LIMIT 1", $id);
+		$database = new Database();
+		$result = $database->query($sql);
+		
 	}
 
 	public function populate(array $storyData) {

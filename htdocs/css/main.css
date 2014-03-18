@@ -98,3 +98,8 @@ p.editable {
 	width: 400px;
 	height: 200px;
 }
+
+#story-edit {
+	padding: 10px;	
+}
+}
