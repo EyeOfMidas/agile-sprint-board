@@ -4,6 +4,8 @@ class ControllerFactory {
 
 	public function create($controllerIndex) {
 		switch ($controllerIndex) {
+			case "changecolumn":
+				return new ChangeColumnController();
 			case "storyedit":
 				return new StoryEditController();
 			case "storysave":

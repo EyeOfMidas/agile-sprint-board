@@ -3,6 +3,7 @@ class Story {
 	private $id;
 	private $text;
 	private $details;
+	private $columnId;
 	private $estimateId;
 
 	public function __construct(Board $board) {
@@ -16,6 +17,7 @@ class Story {
 		$this->id = $result[0]['story_id'];
 		$this->text = $result[0]['text'];
 		$this->details = $result[0]['details'];
+		$this->columnId = $result[0]['column_id'];
 		$this->estimateId = $result[0]['estimate_id'];
 	}
 
@@ -23,6 +25,7 @@ class Story {
 		$this->id = $storyData['story_id'];
 		$this->text = $storyData['text'];
 		$this->details = $storyData['details'];
+		$this->columnId = $storyData['column_id'];
 		$this->estimateId = $storyData['estimate_id'];
 	}
 
@@ -31,12 +34,14 @@ class Story {
 			"story_id" => $this->id,
 			"text" => $this->text,
 			"details" => $this->details,
+			"column_id" => $this->columnId,
 			"estimate_id" => $this->estimateId
 		);
 	}
 
 	public function create() {
-		$sql = sprintf("INSERT INTO story (story_id, text, details, estimate_id) VALUES ('%s', '%s', '%s', '%s')", $this->text, $this->details, $this->estimateId);
+		$sql = sprintf("INSERT INTO story (text, details, column_id, estimate_id) VALUES ('%s', '%s', '%s', '%s')",
+			$this->text, $this->details, $this->columnId, $this->estimateId);
 		$database = new Database();
 		$insertId = $database->write($sql);
 		$this->id = $insertId;
@@ -44,7 +49,8 @@ class Story {
 
 	public function update() {
 		if ($this->id) {
-			$sql = sprintf("UPDATE story SET text='%s', details='%s', estimate_id='%s' WHERE story_id = '%s'", $this->text, $this->details, $this->estimateId, $this->id);
+			$sql = sprintf("UPDATE story SET text='%s', details='%s', column_id='%s', estimate_id='%s' WHERE story_id = '%s'",
+				$this->text, $this->details, $this->columnId, $this->estimateId, $this->id);
 			$database = new Database();
 			$database->write($sql);
 		}
@@ -68,5 +74,9 @@ class Story {
 
 	public function getEstimate() {
 		return $this->board->getEstimateById($this->estimateId);
+	}
+	
+	public function setColumnId($columnId) {
+		$this->columnId = $columnId;
 	}
 }

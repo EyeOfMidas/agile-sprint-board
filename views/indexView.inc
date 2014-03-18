@@ -22,8 +22,11 @@ $columnNameString = join(", ", $allColumnNames);
 <script type="text/javascript">
 $(function() {
     $("<?=$columnNameString?>").sortable({
-      connectWith: ".connectedSortable"
-      ,placeholder: "userStoryPlaceholder"
+      connectWith: ".connectedSortable",
+      placeholder: "userStoryPlaceholder",
+      receive: function(event, ui) {
+          $.post("/?c=changecolumn", {s:ui.item.data('story_id'), col: ui.item.parent().data("column_id")});
+      }
     }).disableSelection();
   });
 </script>

@@ -1,4 +1,4 @@
-<li class="userStory">
+<li class="userStory" data-story_id="<?=$story->getId()?>">
 	<div class="estimate"><?=$story->getEstimate()?></div>
 	<p class="story"><?=$story->getText()?></p>
 	<p class="details"><?=$story->getDetails()?></p>
