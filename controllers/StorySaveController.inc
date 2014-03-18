@@ -1,5 +1,4 @@
 <?php
-
 class StorySaveController implements IController {
 
 	public function execute(Form $form) {
@@ -16,8 +15,10 @@ class StorySaveController implements IController {
 			'details' => $details,
 			'estimate_id' => $estimateId
 		);
-		var_dump($storyData);
-		$story = new Story(new Board());
+		$board = new Board();
+		$board->load();
+		$story = $board->getStoryById($id);
+		
 		$story->populate($storyData);
 		$story->update();
 		
